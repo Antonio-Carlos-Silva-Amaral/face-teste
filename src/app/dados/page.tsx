@@ -7,7 +7,7 @@ interface Usuario{
     senha:string
 }
 
-export default function teste() {
+export default function Teste() {
 
     const [users, setUsers] = useState<Usuario[]>([]);
 

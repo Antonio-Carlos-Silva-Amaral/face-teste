@@ -1,7 +1,7 @@
 // pages/api/signup.ts
 import { PrismaClient } from '@prisma/client';
 
-export default async (req:any, res:any) => {
+const cadastro = async (req:any, res:any) => {
   const prisma = new PrismaClient();
 
   try {

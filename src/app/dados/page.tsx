@@ -1,5 +1,4 @@
 "use client"
-import { prismaClient } from "@/lib/prisma"
 import { useEffect, useState } from "react";
 
 interface Usuario{

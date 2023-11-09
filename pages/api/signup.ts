@@ -1,7 +1,6 @@
-// pages/api/signup.ts
 import { PrismaClient } from '@prisma/client';
 
-const cadastro = async (req:any, res:any) => {
+const cadastro = async (req: any, res: any) => {
   const prisma = new PrismaClient();
 
   try {
@@ -21,3 +20,5 @@ const cadastro = async (req:any, res:any) => {
     await prisma.$disconnect();
   }
 };
+
+export default cadastro;

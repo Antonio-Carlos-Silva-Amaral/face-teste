@@ -29,7 +29,7 @@ const SignUpForm = () => {
 
   
 
-    if (email === 'vilela@vilela' && senha === 'vilelagalodoido') {
+    if (email === 'vilela@vilela' && senha === 'vilela12345') {
       // Se corresponderem, redirecione para a página desejada
       
       router.push('/dados'); // Substitua '/pagina-desejada' pelo caminho da sua página

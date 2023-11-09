@@ -15,7 +15,7 @@ export default function teste() {
         fetch("/api/usuarios")
         .then((response) => response.json())
         .then((data) => setUsers(data));
-    },[users])
+    },[])
 
     return(
         <div className=" m-5 ">{users.map(user =>(

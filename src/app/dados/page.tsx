@@ -1,8 +1,22 @@
+"use client"
 import { prismaClient } from "@/lib/prisma"
+import { useEffect, useState } from "react";
 
-export default async function teste() {
+interface Usuario{
+    id:string,
+    email:string,
+    senha:string
+}
 
-    const users = await prismaClient.user.findMany({})
+export default function teste() {
+
+    const [users, setUsers] = useState<Usuario[]>([]);
+
+    useEffect(()=>{
+        fetch("/api/usuarios")
+        .then((response) => response.json())
+        .then((data) => setUsers(data));
+    },[users])
 
     return(
         <div className=" m-5 ">{users.map(user =>(

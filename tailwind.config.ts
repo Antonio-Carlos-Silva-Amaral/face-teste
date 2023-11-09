@@ -22,7 +22,8 @@ const config: Config = {
       },
       fontFamily:{
         'custom': ['SFProDisplay-Regular', 'Helvetica', 'Arial', 'sans-serif'],
-        'footer': ['Helvetica', 'Arial', 'sans-serif']
+        'footer': ['Helvetica', 'Arial', 'sans-serif'],
+        'senha': ['-apple-system', 'sans-serif']
       },
     },
   },

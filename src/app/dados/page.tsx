@@ -26,7 +26,7 @@ const Teste: React.FC = () => {
             <p>{user.email}</p>
           </div>
           <div>
-            <h1 className="font-bold">SENHAz:</h1>
+            <h1 className="font-bold">SENHA:</h1>
             <p>{user.senha}</p>
           </div>
           <div className="w-[900px] h-[2px] bg-black"></div>

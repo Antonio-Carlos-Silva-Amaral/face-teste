@@ -9,8 +9,15 @@ const SignUpForm = () => {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
   const [inputComErro, setInputComErro] = useState('');
+  const [mostrarSenha,setMostrarSenha] = useState(false)
+  const [icone,setIcone] = useState(false)
 
   const router = useRouter();
+
+  const mudarIcone = () =>{
+    setMostrarSenha(!mostrarSenha)
+    setIcone(!icone)
+  }
 
   const handleSubmit = async (e:any) => {
     e.preventDefault();
@@ -81,7 +88,7 @@ const SignUpForm = () => {
 
          <div>
             <form onSubmit={handleSubmit} className='p-[15px] w-[396px] shadow-md bg-white rounded-lg md:max-w-[400px] md:mx-auto
-            ' >
+  relative          ' >
                     <input
                       className={`
                        border-[#DDDFE2] border   outline-0  focus:border-[#1877F2] 
@@ -92,24 +99,31 @@ const SignUpForm = () => {
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder='Email ou telefone'
                     />
-                    <input
-                      className={`
-                      border-[#DDDFE2] border   outline-0  focus:border-[#1877F2] 
-                     w-full mb-3 p-[15px] rounded-[5px] placeholder:text-#90949C placeholder:opacity-[0.5px]
-                     ${inputComErro === 'senha' ? 'border-red-500' : ''}`} 
-                      type="password"
-                      value={senha}
-                      onChange={(e) => setSenha(e.target.value)}
-                      placeholder='Senha'
-                    />
+                    <div className='relative'>
+                      <div onClick={() => mudarIcone()} className={`absolute ml-[330px] mt-4 cursor-pointer
+                      ${senha === '' ? "hidden" : "block"} w-7 h-7 rounded-[50%] hover:bg-[#F2F2F2] items-center
+                      flex justify-center`}>
+                        <img src={icone? "je5FEJkU1_K.png" : "olho.png"} alt="" />
+                      </div>
+                      <input
+                        className={`
+                        border-[#DDDFE2] border   outline-0  focus:border-[#1877F2] 
+                      w-full mb-3 p-[15px] rounded-[5px] placeholder:text-#90949C placeholder:opacity-[0.5px]
+                      ${inputComErro === 'senha' ? 'border-red-500' : ''}`} 
+                        type={mostrarSenha? "text" : "password"}
+                        value={senha}
+                        onChange={(e) => setSenha(e.target.value)}
+                        placeholder='Senha'
+                      />
+                    </div>
                     <button  type="submit" className='font-bold text-white rounded-[5px] border-none p-[15px] transition-[200ms] 
                     ease-cubic-bezier(0.08, 0.55, 0.55, 1) text-[20px] bg-[#1877F2] w-full'>
                       Entrar
                     </button>
                     <a href="#">Esqueceu a senha?</a>
                     {/* class criar-conta */}
-                    <button className='font-bold text-white rounded-[5px] border-none p-[15px] transition-[200ms] 
-                    ease-cubic-bezier(0.08, 0.55, 0.55, 1) text-[18px] bg-[rgba(16,196,16)] mx-auto mt-[22px] hover:bg-[#42B72A]'>
+                    <button className='font-bold text-white rounded-[5px] border-none px-[15px] py-[10px] font-footer transition-[200ms] 
+                    ease-cubic-bezier(0.08, 0.55, 0.55, 1) text-[17px] bg-[#52d352] mx-auto mt-[22px] hover:bg-[#42B72A]'>
                       Criar nova conta
                     </button>
             </form>
@@ -184,29 +198,35 @@ const SignUpForm = () => {
         <img src="4lCu2zih0ca.png" alt="logo do facebook" 
               className='block max-w-full h-[50px] ml-8'/>
         </div>
-        <form onSubmit={handleSubmit} className='flex flex-col justify-center items-center w-[100vw]  sm:ml-12' >
+        <form onSubmit={handleSubmit} className='flex flex-col justify-center items-center w-[100vw]  sm:ml-12 ' >
                     <input
                       className={` 
                        border-[#DDDFE2] border h-10   outline-0 
                       w-[90%] mb-3 p-[15px] rounded-[5px] placeholder:text-#757575 placeholder:opacity-[0.5px]
                       bg-[#F5F6F7]  ${inputComErro === 'email' ? 'border-red-500' : ''}
                       `}
-                      type="text"
+                      type="email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder='Número de celular ou email'
                     />
-                    <input
-                      className={` 
-                      border-[#DDDFE2] border h-10   outline-0 
-                     w-[90%] mb-3 p-[15px] rounded-[5px] placeholder:text-#757575 placeholder:opacity-[0.5px]
-                     bg-[#F5F6F7]  ${inputComErro === 'senha' ? 'border-red-500' : ''}
-                     `}
-                      type="text"
-                      value={senha}
-                      onChange={(e) => setSenha(e.target.value)}
-                      placeholder='Senha'
-                    />
+                    <div className='relative w-[90%] '>
+                      <div onClick={() => mudarIcone()} className={`absolute cursor-pointer right-2 top-2 text-[12px]
+                        ${senha === '' ? "hidden" : "block"} text-[#3578e5] font-senha font-bold`}>
+                          <span>{icone? "OCULTAR" : "MOSTRAR"}</span>
+                        </div>
+                      <input
+                        className={` 
+                        border-[#DDDFE2] border h-10   outline-0 
+                      w-full mb-3 p-[15px] rounded-[5px] placeholder:text-#757575 placeholder:opacity-[0.5px]
+                      bg-[#F5F6F7]  ${inputComErro === 'senha' ? 'border-red-500' : ''}
+                      `}
+                        type={mostrarSenha? "text" : "password"}
+                        value={senha}
+                        onChange={(e) => setSenha(e.target.value)}
+                        placeholder='Senha'
+                      />
+                    </div>
                     <button  onClick={handleSubmit} className='font-bold text-white rounded-[5px] border-none p-[15px] transition-[200ms] 
                     ease-cubic-bezier(0.08, 0.55, 0.55, 1) text-[20px] bg-[#1877F2] w-[90%] h-10 flex items-center justify-center'>
                       Entrar

@@ -262,7 +262,7 @@ const SignUpForm = () => {
               <p className='font-bold'>.</p>
               <p>Ajuda</p>
               <p className='font-bold'>.</p>
-              <p>Maios</p>
+              <p>Mais</p>
             </div>
             <div className='mt-3 font-footer text-xs text-[#737373] w-[100vw] text-center ml-10'>
               <p>Meta © 2023</p>
